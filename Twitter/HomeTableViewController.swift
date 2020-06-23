@@ -22,6 +22,7 @@ class HomeTableViewController: UITableViewController {
     
     @IBAction func handleLogout(_ sender: Any) {
         TwitterAPICaller.client?.logout()
+        UserDefaults.standard.set(false, forKey: "userLoggedIn")
         dismiss(animated: true, completion: nil)
     }
     
