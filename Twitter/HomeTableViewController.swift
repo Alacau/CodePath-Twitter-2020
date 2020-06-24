@@ -9,11 +9,15 @@
 import UIKit
 
 class HomeTableViewController: UITableViewController {
+    
+    var tweetArray = [NSDictionary]()
+    var numberOfTweets: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 124
+        fetchTweets()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,6 +32,21 @@ class HomeTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    func fetchTweets() {
+        let url = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        let parameters = ["count": 10]
+        TwitterAPICaller.client?.getDictionariesRequest(url: url, parameters: parameters, success: { (tweets) in
+            self.tweetArray.removeAll()
+            for tweet in tweets {
+                self.tweetArray.append(tweet)
+            }
+            self.tableView.reloadData()
+        }, failure: { (error) in
+            print("DEBUG: \(error.localizedDescription)")
+            return
+        })
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -37,11 +56,21 @@ class HomeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return tweetArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
+        let tweet = tweetArray[indexPath.row]
+        let user = tweetArray[indexPath.row]["user"] as! NSDictionary
+        cell.userLabel.text = user["name"] as? String ?? ""
+        cell.tweetLabel.text = tweet["text"] as? String ?? ""
+        
+        let imageURL = URL(string: user["profile_image_url_https"] as! String)
+        let data = try? Data(contentsOf: imageURL!)
+        if let imageData = data {
+            cell.profileImageView.image = UIImage(data: imageData)
+        }
         return cell
     }
 

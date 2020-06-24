@@ -70,13 +70,16 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQA-pb-1mK">
-                                            <rect key="frame" x="124" y="8" width="45" height="21"/>
+                                            <rect key="frame" x="124" y="8" width="243" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="JGh-g9-gXp"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eff-yt-vWi">
-                                            <rect key="frame" x="124" y="37" width="42" height="20.5"/>
+                                            <rect key="frame" x="124" y="37" width="243" height="79"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -86,7 +89,11 @@
                                         <constraint firstItem="eff-yt-vWi" firstAttribute="top" secondItem="kQA-pb-1mK" secondAttribute="bottom" constant="8" id="1Dl-5B-SF4"/>
                                         <constraint firstItem="UsO-2y-gGs" firstAttribute="leading" secondItem="UTV-kQ-JyP" secondAttribute="leading" constant="8" id="FuH-O1-NCV"/>
                                         <constraint firstItem="kQA-pb-1mK" firstAttribute="leading" secondItem="UsO-2y-gGs" secondAttribute="trailing" constant="8" id="GZ9-J5-pI3"/>
+                                        <constraint firstAttribute="bottom" secondItem="eff-yt-vWi" secondAttribute="bottom" constant="8" id="I3U-Qe-W2Q"/>
+                                        <constraint firstAttribute="trailing" secondItem="eff-yt-vWi" secondAttribute="trailing" constant="8" id="VZa-FA-g7G"/>
                                         <constraint firstItem="UsO-2y-gGs" firstAttribute="top" secondItem="UTV-kQ-JyP" secondAttribute="top" constant="8" id="WAq-kA-cwY"/>
+                                        <constraint firstAttribute="trailing" secondItem="kQA-pb-1mK" secondAttribute="trailing" constant="8" id="Wp1-Ph-BdL"/>
+                                        <constraint firstAttribute="bottom" secondItem="UsO-2y-gGs" secondAttribute="bottom" constant="8" id="jDk-k7-0zV"/>
                                         <constraint firstItem="kQA-pb-1mK" firstAttribute="top" secondItem="UTV-kQ-JyP" secondAttribute="top" constant="8" id="usp-bw-Se4"/>
                                         <constraint firstItem="eff-yt-vWi" firstAttribute="leading" secondItem="UsO-2y-gGs" secondAttribute="trailing" constant="8" id="yxW-af-sTJ"/>
                                     </constraints>
